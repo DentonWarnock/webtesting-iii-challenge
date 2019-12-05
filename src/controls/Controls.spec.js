@@ -66,4 +66,6 @@ test("the locked toggle button is disabled if the gate is open", () => {
   });
 
   expect(lockBtn.disabled).toBe(true);
+  //   expect(toggleLocked).toHaveBeenCalled();
+  expect(toggleLocked).toHaveBeenCalledTimes(0);
 });
