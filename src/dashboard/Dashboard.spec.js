@@ -8,7 +8,7 @@ test("display dashboard component snapshot", () => {
   expect(element.asFragment()).toMatchSnapshot();
 });
 
-test("dashboard renders and displays the words open and gate", () => {
+test("dashboard displays the words open and unlocked as defaults", () => {
   const wrapper = render(<Dashboard />);
   const open = wrapper.getByText(/open/i);
   const gate = wrapper.getByText(/unlocked/i);
@@ -16,4 +16,14 @@ test("dashboard renders and displays the words open and gate", () => {
   expect(open).toBeVisible();
   expect(gate).toBeInTheDocument();
   expect(gate).toBeVisible();
+});
+
+test("dashboard displays default controls of lock gate and close gate", () => {
+  const wrapper = render(<Dashboard />);
+  const lock = wrapper.getByText(/lock gate/i);
+  const close = wrapper.getByText(/close gate/i);
+  expect(lock).toBeInTheDocument();
+  expect(lock).toBeVisible();
+  expect(close).toBeInTheDocument();
+  expect(close).toBeVisible();
 });
